@@ -82,7 +82,9 @@ module adc_control (
     .RST_n(RST_n),
     .ENABLE_1(dclk),
     .ENABLE_2(fin_80),
+    .WAIT_IRQ(wait_irq),
     .ADC_PENIRQ_n(ADC_PENIRQ_n),
+    .WAIT_EN(wait_en),
     .ADC_CS(SCEN),
     .ENA_TRANS(trans_en),
     .FIN_TRANS(trans_eof)
