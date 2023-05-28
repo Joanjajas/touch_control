@@ -57,7 +57,7 @@ module fsm (
   end
 
   // Update the next state
-  always @(CURRENT_STATE, ADC_PENIRQ_n, ENABLE_1, ENABLE_2) begin
+  always @(CURRENT_STATE, ADC_PENIRQ_n, ENABLE_1, ENABLE_2, WAIT_IRQ) begin
 
     case (CURRENT_STATE)
       S0: NEXT_STATE = S1;
