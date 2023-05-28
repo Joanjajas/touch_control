@@ -42,6 +42,8 @@ module adc_control (
   wire fin_80;
   wire dclk;
   wire trans_eof;
+  wire wait_en;
+  wire wait_irq;
   wire [6:0] count_80;
 
   // Counter module with modulus ADC_DCLK_CNT instantiation
@@ -63,6 +65,16 @@ module adc_control (
     .TC(fin_80)
   );
   defparam COUNTER2.modulus = 80;
+
+  // Counter module with modulus 25000000 instantiation
+  counter COUNTER3 (
+    .CLK(CLK),
+    .RST_n(RST_n),
+    .ENABLE(wait_en),
+    .COUNT(),
+    .TC(wait_irq)
+  );
+  defparam COUNTER3.modulus = 25000000;
 
   // FSM instantiation
   fsm FSM (
