@@ -33,8 +33,8 @@ module fsm (
   output reg FIN_TRANS;
 
   // Regs
-  reg [1:0] CURRENT_STATE;
-  reg [1:0] NEXT_STATE;
+  reg [2:0] CURRENT_STATE;
+  reg [2:0] NEXT_STATE;
 
   // Parameters
   localparam S0 = 3'b000;
