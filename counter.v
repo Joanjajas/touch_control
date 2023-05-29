@@ -36,7 +36,7 @@ module counter(
     else if (ENABLE) begin
 
       if (COUNT == modulus - 1) begin
-        COUNT <= 1;
+        COUNT <= 0;
       end
 
       else begin

@@ -30,8 +30,8 @@ module adc_dout_capt (
   always @(posedge CLK or negedge RST_n) begin
 
     if (!RST_n) begin
-      X_COORD <= 3'h000;
-      Y_COORD <= 3'h000;
+      X_COORD <= 12'h000;
+      Y_COORD <= 12'h000;
     end
 
     else if (ENABLE) begin

@@ -60,11 +60,11 @@ module fsm (
   always @(CURRENT_STATE, ADC_PENIRQ_n, ENABLE_1, ENABLE_2, WAIT_IRQ) begin
 
     case (CURRENT_STATE)
-      S0: NEXT_STATE = S1;
-      S1: NEXT_STATE = !ADC_PENIRQ_n ? S2 : CURRENT_STATE;
+      S0: NEXT_STATE =                                          S1;
+      S1: NEXT_STATE = !ADC_PENIRQ_n          ? S2 : CURRENT_STATE;
       S2: NEXT_STATE = (ENABLE_1 && ENABLE_2) ? S3 : CURRENT_STATE;
-      S3: NEXT_STATE = S4;
-      S4: NEXT_STATE = WAIT_IRQ ? S0 : CURRENT_STATE;
+      S3: NEXT_STATE =                                          S4;
+      S4: NEXT_STATE = WAIT_IRQ               ? S0 : CURRENT_STATE;
       default: NEXT_STATE = S0;
     endcase
 
@@ -103,11 +103,18 @@ module fsm (
         WAIT_EN   <= 1'b0;
       end
 
-      default: begin
+      S4: begin
         ENA_TRANS <= 1'b0;
         FIN_TRANS <= 1'b0;
         ADC_CS    <= 1'b0;
         WAIT_EN   <= 1'b1;
+      end
+
+      default: begin
+        ENA_TRANS <= 1'b0;
+        FIN_TRANS <= 1'b0;
+        ADC_CS    <= 1'b0;
+        WAIT_EN   <= 1'b0;
       end
 
     endcase
