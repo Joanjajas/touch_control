@@ -31,6 +31,7 @@ module decoder_7seg (
   // Coordinates decoder
   always @(X_COORD, Y_COORD) begin
 
+    // Least significant digit coordinate X
     case(X_COORD[3:0])
       4'h0: HEX5 = 7'b1000000;
       4'h1: HEX5 = 7'b1111001;
@@ -71,6 +72,7 @@ module decoder_7seg (
       default: HEX6 = 7'b1000000;
     endcase
 
+    // Most significant digit coordinate X
     case(X_COORD[11:8])
       4'h0: HEX7 = 7'b1000000;
       4'h1: HEX7 = 7'b1111001;
@@ -91,6 +93,7 @@ module decoder_7seg (
       default: HEX7 = 7'b1000000;
     endcase
 
+    // Least significant digit coordinate Y
     case(Y_COORD[3:0])
       4'h0: HEX0 = 7'b1000000;
       4'h1: HEX0 = 7'b1111001;
@@ -131,6 +134,7 @@ module decoder_7seg (
       default: HEX1 = 7'b1000000;
     endcase
 
+    // Most significant digit coordinate X
     case(Y_COORD[11:8])
       4'h0: HEX2 = 7'b1000000;
       4'h1: HEX2 = 7'b1111001;

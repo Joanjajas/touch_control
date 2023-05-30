@@ -40,7 +40,7 @@ module counter(
       end
 
       else begin
-        COUNT <= COUNT + 1'b1;
+        COUNT <= COUNT + 1;
       end
 
     end

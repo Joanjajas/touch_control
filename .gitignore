@@ -1,5 +1,6 @@
 *
 !*.v
 !*.qar
+!*.stp
 !.gitignore
 !EMULE_ADC.vo
